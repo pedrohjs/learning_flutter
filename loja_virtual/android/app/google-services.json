@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "523045531864",
+    "firebase_url": "https://lojaflutter-acabe.firebaseio.com",
+    "project_id": "lojaflutter-acabe",
+    "storage_bucket": "lojaflutter-acabe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523045531864:android:d9c328f5c5590ed0d727ad",
+        "android_client_info": {
+          "package_name": "br.com.santos.loja_virtual"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "523045531864-6h006huufc1ha6lli43unkflpk5uvqj4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEJakod1n2uxPoiKrzD5GgSPIiLPJUZlk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "523045531864-6h006huufc1ha6lli43unkflpk5uvqj4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
