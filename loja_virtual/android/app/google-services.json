@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "523045531864",
-    "firebase_url": "https://lojaflutter-acabe.firebaseio.com",
-    "project_id": "lojaflutter-acabe",
-    "storage_bucket": "lojaflutter-acabe.appspot.com"
+    "project_number": "430431646783",
+    "firebase_url": "https://loja-virtual-c4332.firebaseio.com",
+    "project_id": "loja-virtual-c4332",
+    "storage_bucket": "loja-virtual-c4332.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:523045531864:android:d9c328f5c5590ed0d727ad",
+        "mobilesdk_app_id": "1:430431646783:android:809a5d29ad7d8b7bf2748a",
         "android_client_info": {
           "package_name": "br.com.santos.loja_virtual"
         }
       },
       "oauth_client": [
         {
-          "client_id": "523045531864-6h006huufc1ha6lli43unkflpk5uvqj4.apps.googleusercontent.com",
+          "client_id": "430431646783-g6jtqfvnricb1agllafst3von6trk84b.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDEJakod1n2uxPoiKrzD5GgSPIiLPJUZlk"
+          "current_key": "AIzaSyBBpc5faIcRLOHFK3HBsxbR384K3y9qtjc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "523045531864-6h006huufc1ha6lli43unkflpk5uvqj4.apps.googleusercontent.com",
+              "client_id": "430431646783-g6jtqfvnricb1agllafst3von6trk84b.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
