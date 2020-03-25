@@ -49,7 +49,7 @@ class HomeTop extends StatelessWidget {
                 margin: EdgeInsets.only(left: 80),
                 alignment: Alignment.center,
                 child: Text(
-                  '2',
+                  '6',
                   style: TextStyle(
                     fontSize: containerGrow.value * 15,
                     fontWeight: FontWeight.w400,

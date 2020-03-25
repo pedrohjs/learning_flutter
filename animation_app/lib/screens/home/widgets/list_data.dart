@@ -44,7 +44,7 @@ class ListData extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 14,
                     color: Colors.grey,
-                    fontWeight: FontWeight.w300
+                    fontWeight: FontWeight.bold
                 ),
               )
             ],

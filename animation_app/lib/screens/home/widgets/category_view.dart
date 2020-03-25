@@ -7,7 +7,7 @@ class CategoryView extends StatefulWidget {
 
 class _CategoryViewState extends State<CategoryView> {
 
-  final List<String> categories = ['Trabalho', 'Estudos', 'Casa'];
+  final List<String> categories = ['Estudos', 'Trabalho', 'Casa'];
   int _category = 0;
 
   @override
