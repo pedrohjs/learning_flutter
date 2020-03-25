@@ -11,7 +11,7 @@ class StaggerAnimation extends StatelessWidget {
         buttonZoomOut = Tween<double>(begin: 60, end: 1000).animate(
             CurvedAnimation(
                 parent: controller,
-                curve: Interval(0.5, 1, curve: Curves.bounceOut)));
+                curve: Interval(0.5, 1, curve: Curves.easeInSine)));
 
   @override
   Widget build(BuildContext context) {

@@ -30,7 +30,7 @@ class StaggerAnimation extends StatelessWidget {
             end: Color.fromRGBO(247, 64, 106, 0.0)
         ).animate(CurvedAnimation(
             parent: controller,
-            curve: Curves.ease
+            curve: Curves.easeIn
         ));
 
   @override
