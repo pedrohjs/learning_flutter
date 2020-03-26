@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:padroes_arquitetura/archs/mvp/login_page.dart';
+import 'package:padroes_arquitetura/archs/mvvm/login_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPageMVP(),
+      home: LoginPageMVVM(),
     );
   }
 }

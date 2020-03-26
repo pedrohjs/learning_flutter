@@ -1,30 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:padroes_arquitetura/archs/mvp/login_presenter.dart';
-import 'package:padroes_arquitetura/archs/mvp/login_repository.dart';
+import 'package:padroes_arquitetura/archs/mvvm/login_repository.dart';
+import 'package:padroes_arquitetura/archs/mvvm/login_viewmodel.dart';
+import 'package:padroes_arquitetura/archs/mvvm/user_model.dart';
 import 'package:padroes_arquitetura/home_page.dart';
 
-class LoginPageMVP extends StatefulWidget {
+class LoginPageMVVM extends StatefulWidget {
   @override
-  _LoginPageMVPState createState() => _LoginPageMVPState();
+  _LoginPageMVVMState createState() => _LoginPageMVVMState();
 }
 
-class _LoginPageMVPState extends State<LoginPageMVP> implements LoginPageContract {
+class _LoginPageMVVMState extends State<LoginPageMVVM> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _formKey = GlobalKey<FormState>();
+  final user = UserModel();
 
-  LoginPresenter presenter;
+  PageViewModel viewModel;
 
   @override
   void initState() {
     super.initState();
-    presenter = LoginPresenter(this, repository: LoginRepository());
+    viewModel = PageViewModel(repository: LoginRepository());
+    viewModel.isLoginOut.listen((isLogin) {
+      if(isLogin) {
+        loginSuccess();
+      } else {
+        loginError();
+      }
+    });
   }
 
   @override
   void dispose() {
     super.dispose();
+    viewModel.dispose();
   }
 
-  @override
   loginSuccess() {
     Navigator.pushReplacement(
       context,
@@ -32,7 +42,6 @@ class _LoginPageMVPState extends State<LoginPageMVP> implements LoginPageContrac
     );
   }
 
-  @override
   loginError() {
     _scaffoldKey.currentState.showSnackBar(SnackBar(
       content: Text('Login error'),
@@ -41,16 +50,11 @@ class _LoginPageMVPState extends State<LoginPageMVP> implements LoginPageContrac
   }
 
   @override
-  void loginManager() {
-    setState(() {});
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       body: Form(
-        key: presenter.formKey,
+        key: _formKey,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -61,7 +65,7 @@ class _LoginPageMVPState extends State<LoginPageMVP> implements LoginPageContrac
                   border: OutlineInputBorder(),
                   labelText: 'email',
                 ),
-                onSaved: presenter.userEmail,
+                onSaved: (value) => user.email = value,
                 validator: (value) {
                   if(value.isEmpty){
                     return 'Campo não pode ser vazio';
@@ -79,7 +83,7 @@ class _LoginPageMVPState extends State<LoginPageMVP> implements LoginPageContrac
                   border: OutlineInputBorder(),
                   labelText: 'password',
                 ),
-                onSaved: presenter.userPassword,
+                onSaved: (value) => user.password = value,
                 validator: (value) {
                   if(value.isEmpty){
                     return 'Campo não pode ser vazio';
@@ -89,12 +93,25 @@ class _LoginPageMVPState extends State<LoginPageMVP> implements LoginPageContrac
                 },
               ),
               SizedBox(height: 30,),
-              RaisedButton(
-                padding: EdgeInsets.symmetric(horizontal: 80),
-                textColor: Colors.white,
-                color: Colors.blue,
-                child: Text('ENTER'),
-                onPressed: presenter.isLoading ? null : presenter.login
+              StreamBuilder<bool>(
+                stream: viewModel.isLoadingOut,
+                initialData: false,
+                builder: (context, snapshot) {
+                  bool isLoading = snapshot.data;
+                  return RaisedButton(
+                    padding: EdgeInsets.symmetric(horizontal: 80),
+                    textColor: Colors.white,
+                    color: Colors.blue,
+                    child: Text('ENTER'),
+                    onPressed: isLoading ? null : () {
+                      if(!_formKey.currentState.validate()) {
+                        return;
+                      }
+                      _formKey.currentState.save();
+                      viewModel.isLoginIn.add(user);
+                    }
+                  );
+                }
               )
             ],
           ),
