@@ -9,6 +9,8 @@ import 'app_widget.dart';
 import 'modules/home/home_module.dart';
 import 'shared/utils/constants.dart';
 
+
+
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
