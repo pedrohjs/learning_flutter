@@ -32,12 +32,20 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
-  
+
   @override
   void initState() {
     _firebaseMessaging.configure(
       onMessage: (message) async {
-        print(message);
+        showDialog(
+            context: context,
+          builder: (_) {
+              return AlertDialog(
+                title: Text(message['notification']['title']),
+                content: Text(message['notification']['body']),
+              );
+          }
+        );
       }
     );
     _firebaseMessaging.requestNotificationPermissions();
