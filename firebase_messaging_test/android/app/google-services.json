@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "102903106909",
+    "firebase_url": "https://messaging-test-140e5.firebaseio.com",
+    "project_id": "messaging-test-140e5",
+    "storage_bucket": "messaging-test-140e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102903106909:android:fe17afd18b6780fe1cacb4",
+        "android_client_info": {
+          "package_name": "br.com.santos.firebase_messaging_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "102903106909-9n7qbsk21vb4u6q5slag49sk6tv5bilt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmDTjWsvmLnbohZ7vTGoDQQKMKQt8C29s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "102903106909-9n7qbsk21vb4u6q5slag49sk6tv5bilt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
