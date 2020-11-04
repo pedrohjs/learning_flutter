@@ -13,11 +13,11 @@ class _BaseScreenState extends State<BaseScreen> {
   final pageController = PageController();
   final pageStore = GetIt.I<PageStore>();
 
-  ReactionDisposer reactionDisposer;
+  ReactionDisposer reactionDispose;
 
   @override
   void initState() {
-    reactionDisposer = reaction(
+    reactionDispose = reaction(
       (_) => pageStore.page,
       (page) => pageController.jumpToPage(page),
     );
@@ -26,7 +26,7 @@ class _BaseScreenState extends State<BaseScreen> {
 
   @override
   void dispose() {
-    reactionDisposer();
+    reactionDispose();
     super.dispose();
   }
 
