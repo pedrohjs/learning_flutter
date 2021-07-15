@@ -6,7 +6,9 @@ class PokemonApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pokedéx',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'Roboto',
         primarySwatch: Colors.red,
       ),
       home: HomeScreen(),
