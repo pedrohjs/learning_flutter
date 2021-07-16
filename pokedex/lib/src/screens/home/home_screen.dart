@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pokedex/src/screens/home/home_controller.dart';
+import 'package:pokedex/src/screens/home/widgets/pokemon_card.dart';
 import 'package:pokedex/src/shared/widgets/text_field_widget.dart';
 import 'package:pokedex/src/utils/colors_util.dart';
 
@@ -12,6 +14,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorsUtil.background,
       appBar: this._buildAppBar(),
+      body: this._buildBody(),
     );
   }
 
@@ -35,7 +38,10 @@ class HomeScreen extends StatelessWidget {
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 18),
-          child: SvgPicture.asset('assets/icons/ic_favorite_border.svg'),
+          child: SvgPicture.asset(
+            'assets/icons/ic_favorite_border.svg',
+            color: ColorsUtil.darkGrey,
+          ),
         ),
       ],
       toolbarHeight: 140,
@@ -51,6 +57,21 @@ class HomeScreen extends StatelessWidget {
             onSubmitted: (text) {},
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildBody() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8, bottom: 12),
+      child: Observer(
+        builder: (_) {
+          return ListView(
+            children: _controller.pokemons
+                .map((e) => PokemonCard(pokemon: e))
+                .toList(),
+          );
+        },
       ),
     );
   }

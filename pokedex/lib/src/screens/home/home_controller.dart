@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:pokedex/src/models/pokemonDTO.dart';
+import 'package:pokedex/src/models/PokemonDTO.dart';
 import 'package:pokedex/src/services/pokemon_service.dart';
 part 'home_controller.g.dart';
 

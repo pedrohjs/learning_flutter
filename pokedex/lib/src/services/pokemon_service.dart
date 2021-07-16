@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:pokedex/src/models/pokemonDTO.dart';
+import 'package:pokedex/src/models/PokemonDTO.dart';
 
 class PokemonService {
   late Dio _dio;
