@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/src/models/PokemonStatDTO.dart';
 import 'package:pokedex/src/models/PokemonTypeDTO.dart';
 import 'package:pokedex/src/utils/extensions/extensions.dart';
 
@@ -7,6 +8,7 @@ class PokemonDTO {
   late String name;
   late String imageUrl;
   late List<PokemonTypeDTO> types;
+  late List<PokemonStatDTO> stats;
   late bool isFavorite;
 
   PokemonDTO.map(Map<String, dynamic> json) {
@@ -18,6 +20,9 @@ class PokemonDTO {
     var listTypes = json['types'] as List;
     this.types = listTypes.map((e) => PokemonTypeDTO.map(e)).toList();
     this.types.sort((a, b) => a.slot.compareTo(b.slot));
+
+    var listStats = json['stats'] as List;
+    this.stats = listStats.map((e) => PokemonStatDTO.map(e)).toList();
 
     this.isFavorite = false;
   }

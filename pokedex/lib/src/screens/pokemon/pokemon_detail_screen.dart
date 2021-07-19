@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pokedex/src/models/PokemonDTO.dart';
+import 'package:pokedex/src/screens/pokemon/widgets/status_row_widget.dart';
 import 'package:pokedex/src/shared/widgets/back_button_widget.dart';
 import 'package:pokedex/src/shared/widgets/pokemon_list_tags.dart';
 import 'package:pokedex/src/utils/colors_util.dart';
@@ -78,7 +79,48 @@ class PokemonDetailScreen extends StatelessWidget {
             ],
           ),
         ),
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: _buildStatus(),
+        ),
       ],
+    );
+  }
+
+  Widget _buildStatus() {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(24, 16, 24, 20),
+      decoration: BoxDecoration(
+        color: ColorsUtil.white,
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20),
+        ),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            'Status',
+            style: TextStyle(
+              color: ColorsUtil.darkGrey,
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+          SizedBox(height: 24),
+          Column(
+            children: this
+                .pokemon
+                .stats
+                .map((e) => StautsRowWidget(stat: e))
+                .toList(),
+          ),
+        ],
+      ),
     );
   }
 }
