@@ -11,31 +11,36 @@ class PokemonListTags extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: pokemonTypes.map((e) => _buildTag(e)).toList(),
     );
   }
 
   Widget _buildTag(PokemonTypeDTO pokemonType) {
-    return Container(
-      margin:
-          this.cardView ? EdgeInsets.only(right: 4) : EdgeInsets.only(right: 8),
-      padding: this.cardView
-          ? EdgeInsets.symmetric(vertical: 4, horizontal: 10)
-          : EdgeInsets.symmetric(vertical: 6, horizontal: 11),
-      decoration: BoxDecoration(
-        color: ColorsUtil.white.withOpacity(0.3),
-        border: Border.all(
-          color: ColorsUtil.white,
-          width: 0.5,
+    return Flexible(
+      child: Container(
+        margin: this.cardView
+            ? EdgeInsets.only(right: 4)
+            : EdgeInsets.only(right: 8),
+        padding: this.cardView
+            ? EdgeInsets.symmetric(vertical: 4, horizontal: 10)
+            : EdgeInsets.symmetric(vertical: 6, horizontal: 11),
+        decoration: BoxDecoration(
+          color: ColorsUtil.white.withOpacity(0.3),
+          border: Border.all(
+            color: ColorsUtil.white,
+            width: 0.5,
+          ),
+          borderRadius: BorderRadius.circular(20),
         ),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text(
-        pokemonType.name,
-        style: TextStyle(
-          color: ColorsUtil.white,
-          fontSize: this.cardView ? 10 : 16,
-          fontWeight: FontWeight.bold,
+        child: Text(
+          pokemonType.name,
+          style: TextStyle(
+            color: ColorsUtil.white,
+            fontSize: this.cardView ? 10 : 16,
+            fontWeight: FontWeight.bold,
+            decoration: TextDecoration.none,
+          ),
         ),
       ),
     );
