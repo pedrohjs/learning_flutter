@@ -52,6 +52,7 @@ class _HomePageState extends State<HomePage> {
                   return const Expanded(
                       child: Center(child: CircularProgressIndicator()));
                 }
+
                 state = state as SearchCepSuccess;
 
                 if (state.data.isEmpty) {
